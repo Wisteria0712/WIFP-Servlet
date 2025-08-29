@@ -11,8 +11,7 @@
     <div class="layui-row">
         <div class="layui-col-md2 layui-col-md-offset1 layui-anim layui-anim-rotate">
             <div class="layui-row" id="logo">
-                <img src="01.png" width="90" height="90">
-
+                <img src="01.png" width="90" height="90" alt="">
             </div>
         </div>
         <div class="layui-col-md9">
