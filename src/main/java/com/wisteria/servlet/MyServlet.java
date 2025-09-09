@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/my")
+@WebServlet(name = "my", value = "/my")
 public class MyServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
