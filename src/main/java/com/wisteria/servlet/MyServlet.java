@@ -1,5 +1,6 @@
 package com.wisteria.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,6 +21,10 @@ public class MyServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.getWriter().write("Hello world!");
         System.out.println("service");
+        request.setAttribute("name", "wisteria");
+        request.setAttribute("age", 18);
+        //request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("/my2").forward(request, response);
     }
 
     @Override
