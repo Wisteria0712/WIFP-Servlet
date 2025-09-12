@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/my2")
-public class MyServlet2 extends HttpServlet {
+@WebServlet("/my4")
+public class MyServlet4 extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -18,14 +18,13 @@ public class MyServlet2 extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("my2");
-        //resp.getWriter().write("name:" + req.getAttribute("name") + "\n");
-        //resp.getWriter().write("age:" + req.getAttribute("age") + "\n");
-        //resp.setStatus(302);
-        //resp.setHeader("Location", "my3");
-        //resp.sendRedirect("https://www.baidu.com");
-        resp.getWriter().write("10秒后刷新");
-        resp.addHeader("refresh", "10;url=login.jsp");
+//        System.out.println("my4");
+//        resp.getWriter().write("Hello, I am my4!");
+//        resp.getWriter().write("<hr>");
+//        resp.getWriter().write("你好，我是my4");
+//        resp.getWriter().flush();
+//        resp.getWriter().close();
+        req.getRequestDispatcher("/mytest.jsp").forward(req, resp);
     }
 
     @Override

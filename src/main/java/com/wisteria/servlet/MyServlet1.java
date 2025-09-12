@@ -1,6 +1,5 @@
 package com.wisteria.servlet;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "my", value = "/my")
-public class MyServlet extends HttpServlet {
+public class MyServlet1 extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         System.out.println("init");
