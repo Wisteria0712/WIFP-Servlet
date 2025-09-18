@@ -51,9 +51,12 @@
             String time = format.format(new Date());
         %>
         <%="<div class=\"main\">当前时间：" + time + "</div>"%>
-        <%
-            String username = request.getParameter("name");
-        %>
-        <%="<div class=\"main\">前端返回用户名：" + username + "</div>"%>
+        <div class="main">前端返回用户名：${name}</div>
+        <%-- <%--%>
+        <%-- String username = request.getParameter("name");--%>
+        <%-- %>--%>
+        <%-- <%="<div class=\"main\">前端返回用户名：" + username + "</div>"%>--%>
+        <%-- <jsp:include page="login.jsp"/>--%>
+        <%-- <jsp:forward page="aboutWeNote.jsp"/>--%>
     </body>
 </html>
