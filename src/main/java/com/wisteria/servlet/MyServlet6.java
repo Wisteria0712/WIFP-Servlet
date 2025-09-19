@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 @WebServlet("/my6")
 public class MyServlet6 extends HttpServlet {
@@ -19,7 +21,10 @@ public class MyServlet6 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("name", req.getParameter("name"));
-        req.getRequestDispatcher("mytest.jsp").forward(req, resp);
+        ArrayList<String> lists = new ArrayList<>();
+        Collections.addAll(lists, "张三", "李四", "王五");
+        req.setAttribute("lists", lists);
+        req.getRequestDispatcher("myTest2.jsp").forward(req, resp);
     }
 
     @Override
