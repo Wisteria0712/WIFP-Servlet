@@ -6,7 +6,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -37,23 +36,23 @@
             </div>
         </div>
         <!--网页页脚-->
-         <hr class="layui-bg-cyan" style="height: 5px" />
-               <div class="layui-row layui-bg-cyan" style="text-align: center">
-                   <jsp:include page="noteFooter.jsp"></jsp:include>
-               </div>
-               <hr class="layui-bg-cyan" style="height: 10px" />
-               <script>
-                   layui.use(['layer'], function() {
-                       var layer = layui.layer;
-                       var flashMsgs = "";
-                       <c:forEach items="${flashMsgs}" var="msg">
-                           flashMsgs = flashMsgs + "${msg}<br />"
-                       </c:forEach>
-                       if (flashMsgs !== "") {
-                           layer.msg(flashMsgs, {time: 0, closeBtn: 2});
-                       }
-                   })
-               </script>
-        <c:remove var="flashMsgs" />
+        <hr class="layui-bg-cyan" style="height: 5px"/>
+        <div class="layui-row layui-bg-cyan" style="text-align: center">
+            <jsp:include page="noteFooter.jsp"></jsp:include>
+        </div>
+        <hr class="layui-bg-cyan" style="height: 10px"/>
+        <script>
+            layui.use(['layer'], function () {
+                var layer = layui.layer;
+                var flashMsgs = "";
+                <c:forEach items="${flashMsgs}" var="msg">
+                flashMsgs = flashMsgs + "${msg}<br />"
+                </c:forEach>
+                if (flashMsgs !== "") {
+                    layer.msg(flashMsgs, {time: 0, closeBtn: 2});
+                }
+            })
+        </script>
+        <c:remove var="flashMsgs"/>
     </body>
 </html>
