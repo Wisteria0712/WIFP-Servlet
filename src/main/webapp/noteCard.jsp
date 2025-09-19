@@ -29,8 +29,9 @@
     </div>
     <div class="layui-card-body layui-btn-container">
         <c:forEach items="${categoryNameMap}" var="category">
-            <a class="layui-btn layui-bg-gray" href="${pageContext.request.contextPath}/FetchAllNoteByCategoryNameServlet.tran?categoryName=${category.key}">
-                ${category.key}
+            <a class="layui-btn layui-bg-gray"
+               href="${pageContext.request.contextPath}/FetchAllNoteByCategoryNameServlet.tran?categoryName=${category.key}">
+                    ${category.key}
                 <span class="layui-badge">${category.value}</span>
             </a>
         </c:forEach>
@@ -44,8 +45,9 @@
     </div>
     <div class="layui-card-body layui-btn-container">
         <c:forEach items="${tagNameMap}" var="tag">
-            <a class="layui-btn layui-bg-gray" href="${pageContext.request.contextPath}/FetchAllNoteByTagNameServlet.tran?tagName=${tag.key}">
-                ${tag.key}
+            <a class="layui-btn layui-bg-gray"
+               href="${pageContext.request.contextPath}/FetchAllNoteByTagNameServlet.tran?tagName=${tag.key}">
+                    ${tag.key}
                 <span class="layui-badge">${tag.value}</span>
             </a>
         </c:forEach>
