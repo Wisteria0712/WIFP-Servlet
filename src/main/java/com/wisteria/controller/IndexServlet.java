@@ -1,6 +1,7 @@
 package com.wisteria.controller;
 
 import com.wisteria.service.impl.NoteServiceImpl;
+import com.wisteria.service.impl.TagServiceImpl;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,8 +22,10 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Map<String, Integer> categoryMap = new NoteServiceImpl().fetchNoteCategory();
-        req.setAttribute("categoryNameMap", categoryMap);
+        Map<String, Integer> categoryNameMap = new NoteServiceImpl().fetchNoteCategory();
+        req.setAttribute("categoryNameMap", categoryNameMap);
+        Map<Integer, String> tagNameMap = new TagServiceImpl().fetchTagInfo();
+        req.setAttribute("tagNameMap", tagNameMap);
         req.getRequestDispatcher("wenote.jsp").forward(req, resp);
     }
 
