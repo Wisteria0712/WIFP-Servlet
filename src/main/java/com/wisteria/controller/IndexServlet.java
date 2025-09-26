@@ -1,4 +1,4 @@
-package com.wisteria.servlet;
+package com.wisteria.controller;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -6,25 +6,30 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
-@WebServlet("/my4")
-public class MyServlet4 extends HttpServlet {
+@WebServlet("/IndexServlet")
+public class IndexServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
     }
 
     @Override
+    protected void doGet(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("wenote.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+
+    @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        System.out.println("my4");
-//        resp.getWriter().write("Hello, I am my4!");
-//        resp.getWriter().write("<hr>");
-//        resp.getWriter().write("你好，我是my4");
-//        resp.getWriter().flush();
-//        resp.getWriter().close();
-        req.getRequestDispatcher("/mytest.jsp").forward(req, resp);
+        super.service(req, resp);
     }
 
     @Override
