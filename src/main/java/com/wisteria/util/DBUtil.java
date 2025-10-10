@@ -1,5 +1,7 @@
 package com.wisteria.util;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -178,7 +180,7 @@ public class DBUtil {
      * @return 结果集列表，每个元素是一个Map代表一行数据
      * @throws SQLException SQL异常
      */
-    public static List<Map<String, Object>> executeQuery(String sql, Object... params) throws SQLException {
+    public static @NotNull List<Map<String, Object>> executeQuery(String sql, Object... params) throws SQLException {
         Connection conn = getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;

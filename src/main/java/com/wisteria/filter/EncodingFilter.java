@@ -7,6 +7,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * 字符集编码过滤器
+ */
 @WebFilter("/*")
 public class EncodingFilter implements Filter {
     @Override

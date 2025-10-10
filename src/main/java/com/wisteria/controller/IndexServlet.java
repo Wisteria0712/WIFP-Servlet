@@ -24,7 +24,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String, Integer> categoryNameMap = new NoteServiceImpl().fetchNoteCategory();
         req.setAttribute("categoryNameMap", categoryNameMap);
-        Map<Integer, String> tagNameMap = new TagServiceImpl().fetchTagInfo();
+        Map<String, Integer> tagNameMap = new TagServiceImpl().fetchTagInfo();
         req.setAttribute("tagNameMap", tagNameMap);
         req.getRequestDispatcher("wenote.jsp").forward(req, resp);
     }

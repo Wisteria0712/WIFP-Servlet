@@ -12,7 +12,7 @@ public class TagServiceImpl implements ITagService {
      * 获取标签信息
      */
     @Override
-    public Map<Integer, String> fetchTagInfo() {
+    public Map<String, Integer> fetchTagInfo() {
         return tagMapper.getTagInfo();
     }
 }
