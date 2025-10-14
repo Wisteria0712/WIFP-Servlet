@@ -31,4 +31,34 @@ public class UserMapper {
         }
         return user;
     }
+
+    /**
+     * 根据用户名查找用户信息
+     */
+    public User findByUserName(String userName) {
+        String sql = "select * from users where userName = ?";
+        User user = null;
+        try {
+            List<Map<String, Object>> resultMap = DBUtil.executeQuery(sql, userName);
+            if (!resultMap.isEmpty()) {
+                user = User.builder()
+                        .userName(resultMap.get(0).get("userName").toString())
+                        .nickname(resultMap.get(0).get("nickname").toString())
+                        .password(resultMap.get(0).get("password").toString())
+                        .telephone(resultMap.get(0).get("telephone").toString()).build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+    }
+
+    public void register(User user) {
+        String sql = "insert into users values(?,?,?,?,?)";
+        try {
+            DBUtil.executeUpdate(sql, user.getUserName(), user.getNickname(), user.getPassword(), user.getTelephone(), user.getPhoto());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

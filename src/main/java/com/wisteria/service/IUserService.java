@@ -7,4 +7,14 @@ public interface IUserService {
      * 用户登录
      */
     User login(String userName, String password);
+
+    /**
+     * 根据用户名查找用户
+     */
+    User findByUserName(String userName);
+
+    /**
+     * 用户注册
+     */
+    void register(User user);
 }

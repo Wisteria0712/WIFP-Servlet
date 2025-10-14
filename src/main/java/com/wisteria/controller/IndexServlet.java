@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet("/IndexServlet")
+@WebServlet("/IndexServlet.tran")
 public class IndexServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {

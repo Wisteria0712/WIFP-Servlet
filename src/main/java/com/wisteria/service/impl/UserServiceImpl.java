@@ -17,4 +17,24 @@ public class UserServiceImpl implements IUserService {
     public User login(String userName, String password) {
         return userMapper.getUserInfo(userName, password);
     }
+
+    /**
+     * 根据用户名查找用户
+     *
+     * @param userName
+     */
+    @Override
+    public User findByUserName(String userName) {
+        return userMapper.findByUserName(userName);
+    }
+
+    /**
+     * 用户注册
+     *
+     * @param user
+     */
+    @Override
+    public void register(User user) {
+        userMapper.register(user);
+    }
 }
