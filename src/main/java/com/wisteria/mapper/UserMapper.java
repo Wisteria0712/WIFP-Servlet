@@ -45,7 +45,8 @@ public class UserMapper {
                         .userName(resultMap.get(0).get("userName").toString())
                         .nickname(resultMap.get(0).get("nickname").toString())
                         .password(resultMap.get(0).get("password").toString())
-                        .telephone(resultMap.get(0).get("telephone").toString()).build();
+                        .telephone(resultMap.get(0).get("telephone").toString())
+                        .build();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -21,6 +21,8 @@ public class CheckUserNameServlet extends HttpServlet {
         User targetUser = userService.findByUserName(userName);
         if (targetUser != null) {
             resp.getWriter().print("<span style='color:red'>已注册</span>");
+        } else {
+            resp.getWriter().print("<span style='color:green'>未注册</span>");
         }
     }
 
