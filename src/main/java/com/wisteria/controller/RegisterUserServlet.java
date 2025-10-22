@@ -8,11 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -46,7 +45,14 @@ public class RegisterUserServlet extends HttpServlet {
                 .brief(brief)
                 .createTime(createTime)
                 .build();
-        userService.register(newUser);
+        boolean result = userService.register(newUser);
+        HttpSession session = req.getSession();
+        if (result) {
+            session.setAttribute("msgs", "注册成功");
+        } else {
+            session.setAttribute("msgs", "注册失败");
+        }
+        resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
     }
 
     @Override

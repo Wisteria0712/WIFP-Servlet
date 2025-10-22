@@ -16,5 +16,5 @@ public interface IUserService {
     /**
      * 用户注册
      */
-    void register(User user);
+    boolean register(User user);
 }

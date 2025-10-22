@@ -58,12 +58,14 @@ public class UserMapper {
     /**
      * 用户注册
      */
-    public void register(@NotNull User user) {
+    public boolean register(@NotNull User user) {
         String sql = "insert into users(userName,nickname,password,telephone,brief,createtime) values(?,?,?,?,?,?)";
+        int line = 0;
         try {
-            DBUtil.executeUpdate(sql, user.getUserName(), user.getNickname(), user.getPassword(), user.getTelephone(), user.getBrief(), user.getCreateTime());
+            line = DBUtil.executeUpdate(sql, user.getUserName(), user.getNickname(), user.getPassword(), user.getTelephone(), user.getBrief(), user.getCreateTime());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return line == 1;
     }
 }

@@ -34,7 +34,7 @@ public class UserServiceImpl implements IUserService {
      * @param user
      */
     @Override
-    public void register(User user) {
-        userMapper.register(user);
+    public boolean register(User user) {
+        return userMapper.register(user);
     }
 }
