@@ -2,6 +2,7 @@ package com.wisteria.mapper;
 
 import com.wisteria.domain.User;
 import com.wisteria.util.DBUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -54,10 +55,13 @@ public class UserMapper {
         return user;
     }
 
-    public void register(User user) {
-        String sql = "insert into users values(?,?,?,?,?)";
+    /**
+     * 用户注册
+     */
+    public void register(@NotNull User user) {
+        String sql = "insert into users(userName,nickname,password,telephone,brief,createtime) values(?,?,?,?,?,?)";
         try {
-            DBUtil.executeUpdate(sql, user.getUserName(), user.getNickname(), user.getPassword(), user.getTelephone(), user.getPhoto());
+            DBUtil.executeUpdate(sql, user.getUserName(), user.getNickname(), user.getPassword(), user.getTelephone(), user.getBrief(), user.getCreateTime());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

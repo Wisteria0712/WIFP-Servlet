@@ -1,17 +1,25 @@
 package com.wisteria.controller;
 
+import cn.hutool.crypto.SecureUtil;
+import com.wisteria.domain.User;
+import com.wisteria.service.impl.UserServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/RegisterUserServlet.tran")
 public class RegisterUserServlet extends HttpServlet {
+
+    private static final UserServiceImpl userService = new UserServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -19,14 +27,26 @@ public class RegisterUserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("register access");
         String userName = req.getParameter("userName");
         String nickName = req.getParameter("nickName");
         String password = req.getParameter("password");
+        String passwordMd5 = SecureUtil.md5(password);
         String telephone = req.getParameter("telephone");
         String brief = req.getParameter("brief");
-        String checkCodeInput = req.getParameter("checkCodeInput");
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String createTime = now.format(formatter);
+        User newUser = User.builder()
+                .userName(userName)
+                .nickname(nickName)
+                .password(passwordMd5)
+                .telephone(telephone)
+                .brief(brief)
+                .createTime(createTime)
+                .build();
+        userService.register(newUser);
     }
 
     @Override

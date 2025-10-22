@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
@@ -22,9 +23,10 @@ public class CheckCodeServlet extends HttpServlet {
 
     @Override
     protected void doGet(@NotNull HttpServletRequest req, @NotNull HttpServletResponse resp) throws ServletException, IOException {
-        //CaptchaUtils.generateAndWrite(req, resp);
+        HttpSession session = req.getSession();
         Random random = new Random();
         int checkCode = random.nextInt(9000) + 1000;
+        session.setAttribute("checkCode", checkCode);
         BufferedImage image = new BufferedImage(80, 25, BufferedImage.TYPE_INT_RGB);
         Graphics graphics = image.getGraphics();
         graphics.fillRect(0, 0, 80, 25);

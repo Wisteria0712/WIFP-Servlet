@@ -45,11 +45,11 @@
             layui.use(['layer'], function () {
                 var layer = layui.layer;
                 var flashMsgs = "";
-                <c:forEach items="${flashMsgs}" var="msg">
+                <c:forEach items="${msgs}" var="msg">
                 flashMsgs = flashMsgs + "${msg}<br />"
                 </c:forEach>
                 if (flashMsgs !== "") {
-                    layer.msg(flashMsgs, {time: 0, closeBtn: 2});
+                    layer.msg(flashMsgs, {time: 2000, closeBtn: 2});
                 }
             })
         </script>
