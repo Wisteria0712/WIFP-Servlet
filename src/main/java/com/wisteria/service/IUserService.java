@@ -17,4 +17,9 @@ public interface IUserService {
      * 用户注册
      */
     boolean register(User user);
+
+    /**
+     * 用户修改密码
+     */
+    boolean changePassword(User user);
 }

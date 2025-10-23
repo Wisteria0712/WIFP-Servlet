@@ -69,4 +69,18 @@ public class UserMapper {
         }
         return line == 1;
     }
+
+    /**
+     * 用户修改密码
+     */
+    public boolean changePassword(@NotNull User user) {
+        String sql = "update users set password = ? where userName = ?";
+        int line = 0;
+        try {
+            line = DBUtil.executeUpdate(sql, user.getPassword(), user.getUserName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return line == 1;
+    }
 }

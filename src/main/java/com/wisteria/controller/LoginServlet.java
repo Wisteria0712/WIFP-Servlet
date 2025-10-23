@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet {
         if (curUser == null) {
             req.getSession().setAttribute("msgs", "用户名或密码错误");
         }
+        req.getSession().removeAttribute("msgs");
         req.getSession().setAttribute("user", curUser);
         resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
         System.out.println("login access");
