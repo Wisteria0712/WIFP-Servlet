@@ -19,7 +19,7 @@ public class User implements Serializable {
     private String password;
     private String telephone;
     private String photo;
-    private Character isAuthor;
+    private String isAuthor;
     private String brief;
     private String createTime;
 }

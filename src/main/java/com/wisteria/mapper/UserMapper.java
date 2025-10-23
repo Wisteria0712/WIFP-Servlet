@@ -24,7 +24,8 @@ public class UserMapper {
                         .password(resultMap.get(0).get("password").toString())
                         .telephone(resultMap.get(0).get("telephone").toString())
                         .photo(resultMap.get(0).get("photo").toString())
-                        .isAuthor(resultMap.get(0).get("isAuthor").toString().charAt(0))
+                        .isAuthor(resultMap.get(0).get("isAuthor").toString())
+                        .createTime(resultMap.get(0).get("createTime").toString())
                         .build();
             }
         } catch (SQLException e) {

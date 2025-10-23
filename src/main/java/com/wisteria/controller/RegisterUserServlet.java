@@ -28,29 +28,32 @@ public class RegisterUserServlet extends HttpServlet {
     @Override
     protected void doPost(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("register access");
-        String userName = req.getParameter("userName");
-        String nickName = req.getParameter("nickName");
-        String password = req.getParameter("password");
-        String passwordMd5 = SecureUtil.md5(password);
-        String telephone = req.getParameter("telephone");
-        String brief = req.getParameter("brief");
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String createTime = now.format(formatter);
-        User newUser = User.builder()
-                .userName(userName)
-                .nickname(nickName)
-                .password(passwordMd5)
-                .telephone(telephone)
-                .brief(brief)
-                .createTime(createTime)
-                .build();
-        boolean result = userService.register(newUser);
         HttpSession session = req.getSession();
-        if (result) {
-            session.setAttribute("msgs", "注册成功");
+        String userName = req.getParameter("userName");
+        User targetUser = userService.findByUserName(userName);
+        if (targetUser != null) {
+            session.setAttribute("msgs", "用户已注册!");
         } else {
-            session.setAttribute("msgs", "注册失败");
+            String nickName = req.getParameter("nickName");
+            String password = req.getParameter("password");
+            String passwordMd5 = SecureUtil.md5(password);
+            String telephone = req.getParameter("telephone");
+            String brief = req.getParameter("brief");
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String createTime = now.format(formatter);
+            User newUser = User.builder()
+                    .userName(userName)
+                    .nickname(nickName)
+                    .password(passwordMd5)
+                    .telephone(telephone)
+                    .brief(brief)
+                    .createTime(createTime)
+                    .build();
+            boolean result = userService.register(newUser);
+            if (result) {
+                session.setAttribute("msgs", "注册成功");
+            }
         }
         resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
     }
