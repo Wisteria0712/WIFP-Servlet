@@ -6,12 +6,14 @@ import com.wisteria.service.impl.UserServiceImpl;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet("/LoginServlet.tran")
 public class LoginServlet extends HttpServlet {
@@ -40,6 +42,11 @@ public class LoginServlet extends HttpServlet {
         }
         req.getSession().removeAttribute("msgs");
         req.getSession().setAttribute("user", curUser);
+        //cookie设置(不使用工具类)
+        if (Objects.equals(autoLogin, "on")) {
+            resp.addCookie(new Cookie("username", username));
+            resp.addCookie(new Cookie("password", password));
+        }
         resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
         System.out.println("login access");
     }
