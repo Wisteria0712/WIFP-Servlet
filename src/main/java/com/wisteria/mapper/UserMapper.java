@@ -83,4 +83,16 @@ public class UserMapper {
         }
         return line == 1;
     }
+
+    /**
+     * 用户修改头像
+     */
+    public void changePhoto(@NotNull User user) {
+        String sql = "update users set photo = ? where userName = ?";
+        try {
+            DBUtil.executeUpdate(sql, user.getPhoto(), user.getUserName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

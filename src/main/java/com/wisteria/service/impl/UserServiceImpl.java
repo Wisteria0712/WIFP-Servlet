@@ -47,4 +47,14 @@ public class UserServiceImpl implements IUserService {
     public boolean changePassword(User user) {
         return userMapper.changePassword(user);
     }
+
+    /**
+     * 用户修改头像
+     *
+     * @param user
+     */
+    @Override
+    public void changePhoto(User user) {
+        userMapper.changePhoto(user);
+    }
 }

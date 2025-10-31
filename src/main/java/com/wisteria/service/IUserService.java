@@ -22,4 +22,9 @@ public interface IUserService {
      * 用户修改密码
      */
     boolean changePassword(User user);
+
+    /**
+     * 用户修改头像
+     */
+    void changePhoto(User user);
 }
