@@ -39,10 +39,10 @@ public class LoginServlet extends HttpServlet {
         User curUser = userService.login(username, passwordMd5);
         if (curUser == null) {
             req.getSession().setAttribute("msgs", "用户名或密码错误");
+        } else {
+            req.getSession().removeAttribute("msgs");
         }
-        req.getSession().removeAttribute("msgs");
         req.getSession().setAttribute("user", curUser);
-        //cookie设置(不使用工具类)
         if (Objects.equals(autoLogin, "on")) {
             resp.addCookie(new Cookie("username", username));
             resp.addCookie(new Cookie("password", password));
