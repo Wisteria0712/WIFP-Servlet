@@ -44,7 +44,6 @@ public class SaveCommentServlet extends HttpServlet {
         commentService.insertComment(comment);
         //req.getRequestDispatcher("/ReadNoteServlet.tran?noteID=" + noteID).forward(req, resp);
         resp.sendRedirect(getServletContext().getContextPath() + "/ReadNoteServlet.tran?noteID=" + noteID);
-        //resp.sendRedirect("/wenote.jsp?url=readNote.jsp");
     }
 
     @Override
