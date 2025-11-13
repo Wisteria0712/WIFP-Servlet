@@ -3,6 +3,7 @@ package com.wisteria.mapper;
 import com.wisteria.util.DBUtil;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,23 @@ public class TagMapper {
             List<Map<String, Object>> resultMap = DBUtil.executeQuery(sql);
             for (Map<String, Object> map : resultMap) {
                 result.put(map.get("tagName").toString(), Integer.parseInt(map.get("tagNum").toString()));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    /**
+     * 获取所有标签名
+     */
+    public List<String> fetchAllTagName() {
+        String sql = "select tagName from tag";
+        List<String> result = new ArrayList<>();
+        try {
+            List<Map<String, Object>> resultMap = DBUtil.executeQuery(sql);
+            for (Map<String, Object> map : resultMap) {
+                result.add(map.get("tagName").toString());
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

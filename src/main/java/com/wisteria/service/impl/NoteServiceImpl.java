@@ -33,4 +33,36 @@ public class NoteServiceImpl implements INoteService {
     public Note getNoteByID(String noteID) {
         return noteMapper.getNoteByID(noteID);
     }
+
+    /**
+     * 根据当前ID获取上一条Note
+     */
+    @Override
+    public Note getLastNoteByID(String noteID) {
+        int curNoteID = Integer.parseInt(noteID) - 1;
+        while (curNoteID != 0) {
+            Note note = noteMapper.getNoteByID(curNoteID + "");
+            if (note != null) {
+                return note;
+            }
+            curNoteID--;
+        }
+        return null;
+    }
+
+    /**
+     * 根据当前ID获取下一条Note
+     */
+    @Override
+    public Note getNextNoteByID(String noteID) {
+        int curNoteID = Integer.parseInt(noteID) + 1;
+        while (curNoteID != 0) {
+            Note note = noteMapper.getNoteByID(curNoteID + "");
+            if (note != null) {
+                return note;
+            }
+            curNoteID++;
+        }
+        return null;
+    }
 }

@@ -53,14 +53,14 @@ public class NoteMapper {
             if (!result.isEmpty()) {
                 Map<String, Object> map = result.get(0);
                 note = Note.builder()
-                        .noteId(Integer.parseInt(map.get("noteID").toString()))
+                        .noteID(Integer.parseInt(map.get("noteID").toString()))
                         .author(map.get("author").toString())
                         .noteTitle(map.get("noteTitle").toString())
                         .noteContent(map.get("noteContent").toString())
                         .visit(Integer.parseInt(map.get("visit").toString()))
                         .categoryName(map.get("categoryName").toString())
                         .createTime(map.get("createTime").toString())
-                        .updateTime(map.get("updateTime").toString())
+                        .updateTime(map.get("updateTime") == null ? null : map.get("updateTime").toString())
                         .build();
             }
         } catch (SQLException e) {

@@ -20,7 +20,7 @@ public class UserMapper {
             if (!resultMap.isEmpty()) {
                 user = User.builder()
                         .userName(resultMap.get(0).get("userName").toString())
-                        .nickname(resultMap.get(0).get("nickname").toString())
+                        .nickName(resultMap.get(0).get("nickname").toString())
                         .password(resultMap.get(0).get("password").toString())
                         .telephone(resultMap.get(0).get("telephone").toString())
                         .photo(resultMap.get(0).get("photo").toString())
@@ -45,7 +45,7 @@ public class UserMapper {
             if (!resultMap.isEmpty()) {
                 user = User.builder()
                         .userName(resultMap.get(0).get("userName").toString())
-                        .nickname(resultMap.get(0).get("nickname").toString())
+                        .nickName(resultMap.get(0).get("nickname").toString())
                         .password(resultMap.get(0).get("password").toString())
                         .telephone(resultMap.get(0).get("telephone").toString())
                         .build();
@@ -63,7 +63,7 @@ public class UserMapper {
         String sql = "insert into users(userName,nickname,password,telephone,brief,createtime) values(?,?,?,?,?,?)";
         int line = 0;
         try {
-            line = DBUtil.executeUpdate(sql, user.getUserName(), user.getNickname(), user.getPassword(), user.getTelephone(), user.getBrief(), user.getCreateTime());
+            line = DBUtil.executeUpdate(sql, user.getUserName(), user.getNickName(), user.getPassword(), user.getTelephone(), user.getBrief(), user.getCreateTime());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

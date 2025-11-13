@@ -15,7 +15,7 @@ public class Note implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer noteId;
+    private Integer noteID;
     private String author;
     private String noteTitle;
     private String noteContent;

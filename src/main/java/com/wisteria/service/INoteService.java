@@ -21,4 +21,14 @@ public interface INoteService {
      * 根据ID获取单条Note
      */
     Note getNoteByID(String noteID);
+
+    /**
+     * 根据当前ID获取上一条Note
+     */
+    Note getLastNoteByID(String noteID);
+
+    /**
+     * 根据当前ID获取下一条Note
+     */
+    Note getNextNoteByID(String noteID);
 }

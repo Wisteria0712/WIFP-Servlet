@@ -44,7 +44,7 @@ public class RegisterUserServlet extends HttpServlet {
             String createTime = now.format(formatter);
             User newUser = User.builder()
                     .userName(userName)
-                    .nickname(nickName)
+                    .nickName(nickName)
                     .password(passwordMd5)
                     .telephone(telephone)
                     .brief(brief)

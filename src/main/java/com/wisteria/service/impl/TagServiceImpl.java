@@ -3,6 +3,7 @@ package com.wisteria.service.impl;
 import com.wisteria.mapper.TagMapper;
 import com.wisteria.service.ITagService;
 
+import java.util.List;
 import java.util.Map;
 
 public class TagServiceImpl implements ITagService {
@@ -15,4 +16,14 @@ public class TagServiceImpl implements ITagService {
     public Map<String, Integer> fetchTagInfo() {
         return tagMapper.getTagInfo();
     }
+
+    /**
+     * 获取所有标签名
+     */
+    @Override
+    public List<String> fetchAllTagName() {
+        return tagMapper.fetchAllTagName();
+    }
+
+
 }
