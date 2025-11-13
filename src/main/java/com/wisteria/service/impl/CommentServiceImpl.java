@@ -49,4 +49,12 @@ public class CommentServiceImpl implements ICommentService {
         }
         return list;
     }
+
+    /**
+     * 新增评论
+     */
+    @Override
+    public void insertComment(Comment comment) {
+        commentMapper.insertComment(comment);
+    }
 }

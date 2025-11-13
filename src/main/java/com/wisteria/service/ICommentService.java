@@ -17,4 +17,9 @@ public interface ICommentService {
      * 根据文章ID获取文章评论
      */
     List<CommentVO> fetchCommentListByNoteID(String noteID);
+
+    /**
+     * 新增评论
+     */
+    void insertComment(Comment comment);
 }

@@ -2,6 +2,7 @@ package com.wisteria.mapper;
 
 import com.wisteria.domain.Comment;
 import com.wisteria.util.DBUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -56,5 +57,17 @@ public class CommentMapper {
             throw new RuntimeException(e);
         }
         return comments;
+    }
+
+    /**
+     * 新增评论
+     */
+    public void insertComment(@NotNull Comment comment) {
+        String sql = "insert into comment(noteID,userName,commentTitle,commentContent,remoteIP) values(?,?,?,?,?)";
+        try {
+            DBUtil.executeUpdate(sql, comment.getNoteId(), comment.getUserName(), comment.getCommentTitle(), comment.getCommentContent(), comment.getRemoteIP());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
