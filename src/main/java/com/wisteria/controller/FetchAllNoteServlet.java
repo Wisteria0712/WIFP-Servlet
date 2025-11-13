@@ -1,36 +1,25 @@
 package com.wisteria.controller;
 
-import com.wisteria.domain.User;
-import com.wisteria.service.impl.CommentServiceImpl;
+import com.wisteria.domain.Note;
+import com.wisteria.service.impl.NoteServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
-/**
- * 用户评论
- */
-@WebServlet("/FetchMyCommentServlet.tran")
-public class FetchMyCommentServlet extends HttpServlet {
-
-    private static final CommentServiceImpl commentService = new CommentServiceImpl();
+@WebServlet("/FetchAllNoteServlet.tran")
+public class FetchAllNoteServlet extends HttpServlet {
+    private static final NoteServiceImpl noteService = new NoteServiceImpl();
 
     @Override
     protected void service(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("fetch my comment access");
-        HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("user");
-        String userName = user.getUserName();
-        System.out.println("userName:" + userName);
-        req.setAttribute("commentList", commentService.fetchCommentList(userName));
-//        req.getRequestDispatcher("noteList.jsp").forward(req, resp);
+        System.out.println("fetch all note access");
+        req.setAttribute("noteList", noteService.fetchAllNote());
         req.getRequestDispatcher("/IndexServlet.tran?url=/noteList.jsp").forward(req, resp);
     }
 

@@ -30,23 +30,25 @@ public class ChangePasswordServlet extends HttpServlet {
     protected void doPost(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("change password access");
         HttpSession session = req.getSession();
+        session.removeAttribute("msgs");
         String oldPassword = req.getParameter("oldPassword");
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
         User curUser = (User) session.getAttribute("user");
         if (!curUser.getPassword().equalsIgnoreCase(SecureUtil.md5(oldPassword))) {
             session.setAttribute("msgs", "原密码错误!");
-        }
-        if (!password.equals(confirmPassword)) {
+        } else if (!password.equals(confirmPassword)) {
             session.setAttribute("msgs", "密码与确认密码不一致!");
-        }
-        curUser.setPassword(SecureUtil.md5(password));
-        if (userService.changePassword(curUser)) {
-            session.setAttribute("msgs", "修改密码成功!");
-            resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
         } else {
-            session.setAttribute("msgs", "修改密码失败!");
-            req.getRequestDispatcher("/user/changePassword.jsp").forward(req, resp);
+            curUser.setPassword(SecureUtil.md5(password));
+            if (userService.changePassword(curUser)) {
+                session.setAttribute("msgs", "修改密码成功!");
+                //resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
+                resp.sendRedirect(req.getContextPath() + "/user/LogoutServlet");
+            } else {
+                session.setAttribute("msgs", "修改密码失败!");
+                resp.sendRedirect(this.getServletContext().getContextPath() + "/IndexServlet.tran?url=/user/changePassword.jsp");
+            }
         }
     }
 

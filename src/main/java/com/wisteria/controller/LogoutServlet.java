@@ -14,7 +14,8 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void service(@NotNull HttpServletRequest req, @NotNull HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("access LogoutServlet");
-        req.getSession().removeAttribute("user");
+        //req.getSession().removeAttribute("user");
+        req.getSession().invalidate();
         resp.sendRedirect("/sdcit/IndexServlet.tran");
         System.out.println("logout access");
     }

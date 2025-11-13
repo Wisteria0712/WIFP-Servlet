@@ -1,8 +1,11 @@
 package com.wisteria.mapper;
 
+import com.wisteria.domain.Note;
 import com.wisteria.util.DBUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,5 +26,46 @@ public class NoteMapper {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+    /**
+     * 获取所有巡检反馈
+     */
+    public List<Map<String, Object>> fetchAllNote() {
+        String sql = "select * from note order by createTime desc";
+        List<Map<String, Object>> result = new ArrayList<>();
+        try {
+            result = DBUtil.executeQuery(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    /**
+     * 根据ID获取单条Note
+     */
+    public Note getNoteByID(String noteID) {
+        String sql = "select * from note where noteID=?";
+        Note note = null;
+        try {
+            List<Map<String, Object>> result = DBUtil.executeQuery(sql, noteID);
+            if (!result.isEmpty()) {
+                Map<String, Object> map = result.get(0);
+                note = Note.builder()
+                        .noteId(Integer.parseInt(map.get("noteID").toString()))
+                        .author(map.get("author").toString())
+                        .noteTitle(map.get("noteTitle").toString())
+                        .noteContent(map.get("noteContent").toString())
+                        .visit(Integer.parseInt(map.get("visit").toString()))
+                        .categoryName(map.get("categoryName").toString())
+                        .createTime(map.get("createTime").toString())
+                        .updateTime(map.get("updateTime").toString())
+                        .build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return note;
     }
 }
