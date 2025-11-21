@@ -52,6 +52,7 @@ public class ReadNoteServlet extends HttpServlet {
         session.setAttribute("nextNote", nextNote);
         //设置评论信息
         List<CommentVO> commentVOS = commentService.fetchCommentListByNoteID(noteID);
+        noteService.updateNoteVisitCountByID(noteID);
         session.setAttribute("commentList", commentVOS);
         resp.sendRedirect("wenote.jsp?url=readNote.jsp");
     }

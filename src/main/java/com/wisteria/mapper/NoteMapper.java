@@ -2,7 +2,6 @@ package com.wisteria.mapper;
 
 import com.wisteria.domain.Note;
 import com.wisteria.util.DBUtil;
-import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -67,5 +66,17 @@ public class NoteMapper {
             throw new RuntimeException(e);
         }
         return note;
+    }
+
+    /**
+     * 根据ID修改文章阅读量
+     */
+    public void updateNoteVisitCountByID(String noteID) {
+        String sql = "update note set visit=visit+1 where noteID=?";
+        try {
+            DBUtil.executeUpdate(sql, noteID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

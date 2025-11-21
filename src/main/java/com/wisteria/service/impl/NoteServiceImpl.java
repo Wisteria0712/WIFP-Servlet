@@ -35,6 +35,14 @@ public class NoteServiceImpl implements INoteService {
     }
 
     /**
+     * 根据ID修改ydl
+     */
+    @Override
+    public void updateNoteVisitCountByID(String noteID) {
+        noteMapper.updateNoteVisitCountByID(noteID);
+    }
+
+    /**
      * 根据当前ID获取上一条Note
      */
     @Override

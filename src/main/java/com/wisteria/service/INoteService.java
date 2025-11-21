@@ -31,4 +31,9 @@ public interface INoteService {
      * 根据当前ID获取下一条Note
      */
     Note getNextNoteByID(String noteID);
+
+    /**
+     * 根据ID修改ydl
+     */
+    void updateNoteVisitCountByID(String noteID);
 }
