@@ -1,6 +1,7 @@
 package com.wisteria.controller;
 
 import com.wisteria.domain.Note;
+import com.wisteria.domain.User;
 import com.wisteria.domain.vo.CommentVO;
 import com.wisteria.service.impl.CommentServiceImpl;
 import com.wisteria.service.impl.NoteServiceImpl;
@@ -31,6 +32,7 @@ public class ReadNoteServlet extends HttpServlet {
     protected void doGet(@NotNull HttpServletRequest req, @NotNull HttpServletResponse resp) throws ServletException, IOException {
         String noteID = req.getParameter("noteID");
         HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user");
         System.out.println("noteID:" + noteID);
         Note note = noteService.getNoteByID(noteID);
         System.out.println(note);
@@ -52,7 +54,9 @@ public class ReadNoteServlet extends HttpServlet {
         session.setAttribute("nextNote", nextNote);
         //设置评论信息
         List<CommentVO> commentVOS = commentService.fetchCommentListByNoteID(noteID);
-        noteService.updateNoteVisitCountByID(noteID);
+        if (!(user != null && user.getIsAuthor().equals("Y") && note.getAuthor().equals(user.getUserName()))) {
+            noteService.updateNoteVisitCountByID(noteID);
+        }
         session.setAttribute("commentList", commentVOS);
         resp.sendRedirect("wenote.jsp?url=readNote.jsp");
     }
