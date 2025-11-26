@@ -79,4 +79,21 @@ public class NoteMapper {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 获取所有分类名称
+     */
+    public List<String> fetchAllCategoryNameOnly() {
+        String sql = "select distinct categoryName from note";
+        List<String> result = new ArrayList<>();
+        try {
+            List<Map<String, Object>> maps = DBUtil.executeQuery(sql);
+            for (Map<String, Object> map : maps) {
+                result.add(map.get("categoryName").toString());
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 }

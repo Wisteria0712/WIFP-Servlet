@@ -73,4 +73,20 @@ public class NoteServiceImpl implements INoteService {
         }
         return null;
     }
+
+    /**
+     * 通过TagName获取Note
+     */
+    @Override
+    public List<Note> fetchAllNoteByTagName(String tagName) {
+        return List.of();
+    }
+
+    /**
+     * 获取所有类别名称
+     */
+    @Override
+    public List<String> fetchAllCategoryNameOnly() {
+        return noteMapper.fetchAllCategoryNameOnly();
+    }
 }

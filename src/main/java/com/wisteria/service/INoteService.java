@@ -36,4 +36,14 @@ public interface INoteService {
      * 根据ID修改ydl
      */
     void updateNoteVisitCountByID(String noteID);
+
+    /**
+     * 通过TagName获取Note
+     */
+    List<Note> fetchAllNoteByTagName(String tagName);
+
+    /**
+     * 获取所有类别名称
+     */
+    List<String> fetchAllCategoryNameOnly();
 }
