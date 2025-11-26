@@ -1,5 +1,6 @@
 package com.wisteria.controller;
 
+import com.wisteria.domain.Comment;
 import com.wisteria.domain.User;
 import com.wisteria.service.impl.CommentServiceImpl;
 import jakarta.servlet.ServletException;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 用户评论
@@ -27,9 +29,10 @@ public class FetchMyCommentServlet extends HttpServlet {
         User user = (User) session.getAttribute("user");
         String userName = user.getUserName();
         System.out.println("userName:" + userName);
-        req.setAttribute("commentList", commentService.fetchCommentList(userName));
-//        req.getRequestDispatcher("noteList.jsp").forward(req, resp);
-        req.getRequestDispatcher("/IndexServlet.tran?url=/noteList.jsp").forward(req, resp);
+        List<Comment> comments = commentService.fetchCommentList(userName);
+        comments.forEach(System.out::println);
+        req.setAttribute("commentList", comments);
+        req.getRequestDispatcher("/IndexServlet.tran?url=/user/myCommentList.jsp").forward(req, resp);
     }
 
     @Override
