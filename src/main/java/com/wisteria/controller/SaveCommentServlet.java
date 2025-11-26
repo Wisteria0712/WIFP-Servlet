@@ -32,6 +32,23 @@ public class SaveCommentServlet extends HttpServlet {
         System.out.println("commentTitle:" + commentTitle);
         String commentContent = req.getParameter("commentContent");
         System.out.println("commentContent:" + commentContent);
+        Comment commentForm = Comment.builder()
+                .noteId(Integer.parseInt(noteID))
+                .commentTitle(commentTitle)
+                .commentContent(commentContent)
+                .build();
+        if (commentTitle.isEmpty()) {
+            req.getSession().setAttribute("msgs", "请填写评论标题");
+            req.getSession().setAttribute("commentForm", commentForm);
+            resp.sendRedirect(getServletContext().getContextPath() + "/ReadNoteServlet.tran?noteID=" + noteID);
+            return;
+        }
+        if (commentContent.isEmpty()) {
+            req.getSession().setAttribute("msgs", "请填写评论内容");
+            req.getSession().setAttribute("commentForm", commentForm);
+            resp.sendRedirect(getServletContext().getContextPath() + "/ReadNoteServlet.tran?noteID=" + noteID);
+            return;
+        }
         String remoteIP = req.getRemoteAddr();
         System.out.println("remoteIP:" + remoteIP);
         Comment comment = Comment.builder()
@@ -42,7 +59,7 @@ public class SaveCommentServlet extends HttpServlet {
                 .remoteIP(remoteIP)
                 .build();
         commentService.insertComment(comment);
-        //req.getRequestDispatcher("/ReadNoteServlet.tran?noteID=" + noteID).forward(req, resp);
+        req.getSession().removeAttribute("msgs");
         resp.sendRedirect(getServletContext().getContextPath() + "/ReadNoteServlet.tran?noteID=" + noteID);
     }
 
