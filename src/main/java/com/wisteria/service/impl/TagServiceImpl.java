@@ -1,5 +1,6 @@
 package com.wisteria.service.impl;
 
+import com.wisteria.domain.Tag;
 import com.wisteria.mapper.TagMapper;
 import com.wisteria.service.ITagService;
 
@@ -25,5 +26,11 @@ public class TagServiceImpl implements ITagService {
         return tagMapper.fetchAllTagName();
     }
 
-
+    /**
+     * Note与Tag绑定
+     */
+    @Override
+    public void bindNoteTag(Tag tag) {
+        tagMapper.bindNoteTag(tag);
+    }
 }

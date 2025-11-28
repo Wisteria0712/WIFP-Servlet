@@ -1,5 +1,7 @@
 package com.wisteria.service;
 
+import com.wisteria.domain.Tag;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,4 +15,9 @@ public interface ITagService {
      * 获取所有标签名
      */
     List<String> fetchAllTagName();
+
+    /**
+     * Note与Tag绑定
+     */
+    void bindNoteTag(Tag tag);
 }

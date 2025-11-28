@@ -1,6 +1,8 @@
 package com.wisteria.mapper;
 
+import com.wisteria.domain.Tag;
 import com.wisteria.util.DBUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,5 +43,17 @@ public class TagMapper {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+    /**
+     * Note与Tag绑定
+     */
+    public void bindNoteTag(@NotNull Tag tag) {
+        String sql = "insert into tag(tagName,noteID) values(?,?)";
+        try {
+            DBUtil.executeUpdate(sql, tag.getTagName(), tag.getNoteID());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

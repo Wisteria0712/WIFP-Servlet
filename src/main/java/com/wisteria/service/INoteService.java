@@ -1,6 +1,7 @@
 package com.wisteria.service;
 
 import com.wisteria.domain.Note;
+import com.wisteria.domain.Tag;
 
 import java.util.List;
 import java.util.Map;
@@ -46,4 +47,9 @@ public interface INoteService {
      * 获取所有类别名称
      */
     List<String> fetchAllCategoryNameOnly();
+
+    /**
+     * 新增Note
+     */
+    int insertNote(Note note);
 }

@@ -89,4 +89,12 @@ public class NoteServiceImpl implements INoteService {
     public List<String> fetchAllCategoryNameOnly() {
         return noteMapper.fetchAllCategoryNameOnly();
     }
+
+    /**
+     * 新增Note
+     */
+    @Override
+    public int insertNote(Note note) {
+        return noteMapper.insertNote(note);
+    }
 }

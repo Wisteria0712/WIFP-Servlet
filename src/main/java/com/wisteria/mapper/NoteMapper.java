@@ -2,6 +2,7 @@ package com.wisteria.mapper;
 
 import com.wisteria.domain.Note;
 import com.wisteria.util.DBUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -91,6 +92,20 @@ public class NoteMapper {
             for (Map<String, Object> map : maps) {
                 result.add(map.get("categoryName").toString());
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    /**
+     * 新增Note
+     */
+    public int insertNote(@NotNull Note note) {
+        String sql = "insert into note(author,noteTitle,noteContent,visit,categoryName) values(?,?,?,?,?)";
+        int result;
+        try {
+            result = DBUtil.executeUpdate(sql, note.getAuthor(), note.getNoteTitle(), note.getNoteContent(), note.getVisit(), note.getCategoryName());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -32,15 +32,7 @@ public class AddNoteServlet extends HttpServlet {
 
     @Override
     protected void doPost(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("author add note servlet post access");
-        String noteTitle = req.getParameter("noteTitle");
-        System.out.println("noteTitle:" + noteTitle);
-        String categoryName = req.getParameter("categoryName");
-        System.out.println("categoryName:" + categoryName);
-        String tagNames = req.getParameter("tagNames");
-        System.out.println("tagNames:" + tagNames);
-        String noteContent = req.getParameter("noteContent");
-        System.out.println("noteContent:" + noteContent);
+        super.doPost(req, resp);
     }
 
     @Override
