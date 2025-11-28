@@ -10,11 +10,11 @@
     <legend>编辑巡检记录</legend>
     <div class="layui-field-box">
         <form class="layui-form" method="post" id="note" name="note">
-            <input type="hidden" name="noteID" value="${noteForm.noteID}" />
+            <input type="hidden" name="noteID" value="${noteForm.noteID}"/>
             <div class="layui-form-item">
                 <label class="layui-form-label">巡检记录标题</label>
                 <div class="layui-input-block">
-                    <input name="noteTitle" class="layui-input" value="${noteForm.noteTitle}" />
+                    <input name="noteTitle" class="layui-input" value="${noteForm.noteTitle}"/>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -22,12 +22,12 @@
                 <div class="layui-btn-container">
                     <c:forEach items="${allCategoryNameList}" var="allCategoryName">
                         <label class="layui-btn layui-btn-xs layui-bg-cyan" onclick="addCategory(this)">
-                            ${allCategoryName}
+                                ${allCategoryName}
                         </label>
                     </c:forEach>
                 </div>
                 <div class="layui-input-block">
-                    <input name="categoryName" id="categoryName" class="layui-input" value="${noteForm.categoryName}" />
+                    <input name="categoryName" id="categoryName" class="layui-input" value="${noteForm.categoryName}"/>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -35,13 +35,13 @@
                 <div class="layui-btn-container">
                     <c:forEach items="${allTagNameList}" var="allTagName">
                         <label class="layui-btn layui-btn-xs layui-bg-cyan" onclick="addTag(this)">
-                            ${allTagName}
+                                ${allTagName}
                         </label>
                     </c:forEach>
                 </div>
                 <div class="layui-input-block">
                     <input name="tagNames" id="tagNames" class="layui-input"
-                           value="<c:forEach items="${tagNameList}" var="tagName">${tagName} #</c:forEach>" />
+                           value="<c:forEach items="${tagNameList}" var="tagName">${tagName} #</c:forEach>"/>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -69,42 +69,45 @@
 <script src="${pageContext.request.contextPath}/resources/ckeditor5/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ckeditor5/zh-cn.js"></script>
 <script>
-    ClassicEditor.create(document.querySelector('#noteContent'),{
+    ClassicEditor.create(document.querySelector('#noteContent'), {
         toolbar: ['heading', '|', 'bold', 'italic', 'link', 'imageUpload', 'blockQuote'],
         language: 'zh-cn',
         ckfinder: {
             uploadUrl: '${pageContext.request.contextPath}/author/UploadNotePhotoServlet'
         }
     });
-function changeNote() {
-    document.note.action = "${pageContext.request.contextPath}/author/ChangeNoteServlet.tran";
-    document.note.submit();
-}
-function deleteNote() {
-    layui.use(['layer'], function () {
-        let layer = layui.layer;
-        layer.confirm('确定删除吗？', {
-            btn: ['确定删除', '取消删除']
-        }, function () {
-            document.note.action = "${pageContext.request.contextPath}/author/DeleteNoteServlet.tran";
-            document.note.submit();
-        }, function () {
 
-        });
-    });
-}
-let addCategory = function (btn) {
-    let value = btn.innerText;
-    let categoryName = document.getElementById("categoryName");
-    categoryName.value = value;
-}
-let addTag = function (btn) {
-    let value = btn.innerText;
-    let tagNames = document.getElementById('tagNames');
-    let tagNameValues = tagNames.value;
-    if (tagNameValues.indexOf(value) > -1) {
-        return;
+    function changeNote() {
+        document.note.action = "${pageContext.request.contextPath}/author/ChangeNoteServlet.tran";
+        document.note.submit();
     }
-    tagNames.value = tagNameValues + value + "#";
-}
+
+    function deleteNote() {
+        layui.use(['layer'], function () {
+            let layer = layui.layer;
+            layer.confirm('确定删除吗？', {
+                btn: ['确定删除', '取消删除']
+            }, function () {
+                document.note.action = "${pageContext.request.contextPath}/author/DeleteNoteServlet.tran";
+                document.note.submit();
+            }, function () {
+
+            });
+        });
+    }
+
+    let addCategory = function (btn) {
+        let value = btn.innerText;
+        let categoryName = document.getElementById("categoryName");
+        categoryName.value = value;
+    }
+    let addTag = function (btn) {
+        let value = btn.innerText;
+        let tagNames = document.getElementById('tagNames');
+        let tagNameValues = tagNames.value;
+        if (tagNameValues.indexOf(value) > -1) {
+            return;
+        }
+        tagNames.value = tagNameValues + value + "#";
+    }
 </script>

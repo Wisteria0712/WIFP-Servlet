@@ -56,4 +56,12 @@ public class CommentServiceImpl implements ICommentService {
     public void insertComment(Comment comment) {
         commentMapper.insertComment(comment);
     }
+
+    /**
+     * 根据NoteID删除评论
+     */
+    @Override
+    public void deleteCommentByNoteID(String noteID) {
+        commentMapper.deleteCommentByNoteID(noteID);
+    }
 }

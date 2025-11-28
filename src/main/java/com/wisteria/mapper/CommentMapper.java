@@ -70,4 +70,16 @@ public class CommentMapper {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 根据NoteID删除评论
+     */
+    public void deleteCommentByNoteID(String noteID) {
+        String sql = "delete from comment where noteID=?";
+        try {
+            DBUtil.executeUpdate(sql, noteID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

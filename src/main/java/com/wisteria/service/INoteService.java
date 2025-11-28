@@ -1,7 +1,6 @@
 package com.wisteria.service;
 
 import com.wisteria.domain.Note;
-import com.wisteria.domain.Tag;
 
 import java.util.List;
 import java.util.Map;
@@ -52,4 +51,9 @@ public interface INoteService {
      * 新增Note
      */
     int insertNote(Note note);
+
+    /**
+     * 根据ID删除Note
+     */
+    int deleteNoteByID(String noteID);
 }

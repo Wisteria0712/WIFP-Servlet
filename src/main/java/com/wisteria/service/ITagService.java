@@ -20,4 +20,9 @@ public interface ITagService {
      * Note与Tag绑定
      */
     void bindNoteTag(Tag tag);
+
+    /**
+     * 根据NoteID删除对应的标签
+     */
+    void deleteTagByNoteID(String noteID);
 }

@@ -33,4 +33,12 @@ public class TagServiceImpl implements ITagService {
     public void bindNoteTag(Tag tag) {
         tagMapper.bindNoteTag(tag);
     }
+
+    /**
+     * 根据NoteID删除对应的标签
+     */
+    @Override
+    public void deleteTagByNoteID(String noteID) {
+        tagMapper.deleteTagByNoteID(noteID);
+    }
 }

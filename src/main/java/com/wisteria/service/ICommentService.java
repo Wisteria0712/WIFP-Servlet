@@ -3,9 +3,7 @@ package com.wisteria.service;
 import com.wisteria.domain.Comment;
 import com.wisteria.domain.vo.CommentVO;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 public interface ICommentService {
     /**
@@ -22,4 +20,9 @@ public interface ICommentService {
      * 新增评论
      */
     void insertComment(Comment comment);
+
+    /**
+     * 根据NoteID删除评论
+     */
+    void deleteCommentByNoteID(String noteID);
 }

@@ -1,7 +1,9 @@
 package com.wisteria.service.impl;
 
 import com.wisteria.domain.Note;
+import com.wisteria.mapper.CommentMapper;
 import com.wisteria.mapper.NoteMapper;
+import com.wisteria.mapper.TagMapper;
 import com.wisteria.service.INoteService;
 
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.Map;
 
 public class NoteServiceImpl implements INoteService {
     private static final NoteMapper noteMapper = new NoteMapper();
+    private static final CommentMapper commentMapper = new CommentMapper();
+    private static final TagMapper tagMapper = new TagMapper();
 
     /**
      * 获取Note类别
@@ -96,5 +100,17 @@ public class NoteServiceImpl implements INoteService {
     @Override
     public int insertNote(Note note) {
         return noteMapper.insertNote(note);
+    }
+
+    /**
+     * 根据ID删除Note
+     */
+    @Override
+    public int deleteNoteByID(String noteID) {
+        //删除指定ID的Note下对应的评论
+        commentMapper.deleteCommentByNoteID(noteID);
+        //删除指定ID的Note下对应的Tag
+        tagMapper.deleteTagByNoteID(noteID);
+        return noteMapper.deleteNoteByID(noteID);
     }
 }

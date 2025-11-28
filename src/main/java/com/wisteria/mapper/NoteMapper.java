@@ -111,4 +111,18 @@ public class NoteMapper {
         }
         return result;
     }
+
+    /**
+     * 根据ID删除Note
+     */
+    public int deleteNoteByID(String noteID) {
+        String sql = "delete from note where noteID=?";
+        int result;
+        try {
+            result = DBUtil.executeUpdate(sql, noteID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 }

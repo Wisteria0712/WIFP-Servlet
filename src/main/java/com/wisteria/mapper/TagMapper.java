@@ -56,4 +56,16 @@ public class TagMapper {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 根据NoteID删除对应的标签
+     */
+    public void deleteTagByNoteID(String noteID) {
+        String sql = "delete from tag where noteID = ?";
+        try {
+            DBUtil.executeUpdate(sql, noteID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
