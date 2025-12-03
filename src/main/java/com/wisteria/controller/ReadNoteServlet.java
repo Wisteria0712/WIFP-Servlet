@@ -37,7 +37,7 @@ public class ReadNoteServlet extends HttpServlet {
         Note note = noteService.getNoteByID(noteID);
         System.out.println(note);
         session.setAttribute("note", note);
-        List<String> tagNameList = tagService.fetchAllTagName();
+        List<String> tagNameList = tagService.fetchTagNameByNoteID(noteID);
         tagNameList.forEach(System.out::println);
         session.setAttribute("tagNameList", tagNameList);
         //生成上一条(ID递减)

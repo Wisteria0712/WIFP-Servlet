@@ -125,4 +125,18 @@ public class NoteMapper {
         }
         return result;
     }
+
+    /**
+     * 修改note
+     */
+    public int updateNote(@NotNull Note note) {
+        String sql = "update note set noteTitle=?,noteContent=?,categoryName=?,updateTime=? where noteID=?";
+        int result;
+        try {
+            result = DBUtil.executeUpdate(sql, note.getNoteTitle(), note.getNoteContent(), note.getCategoryName(), note.getUpdateTime(), note.getNoteID());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 }

@@ -27,6 +27,14 @@ public class TagServiceImpl implements ITagService {
     }
 
     /**
+     * 根据noteID获取对应的标签
+     */
+    @Override
+    public List<String> fetchTagNameByNoteID(String noteID) {
+        return tagMapper.fetchTagNameByNoteID(noteID);
+    }
+
+    /**
      * Note与Tag绑定
      */
     @Override

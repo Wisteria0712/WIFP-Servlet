@@ -17,6 +17,11 @@ public interface ITagService {
     List<String> fetchAllTagName();
 
     /**
+     * 根据noteID获取对应的标签
+     */
+    List<String> fetchTagNameByNoteID(String noteID);
+
+    /**
      * Note与Tag绑定
      */
     void bindNoteTag(Tag tag);

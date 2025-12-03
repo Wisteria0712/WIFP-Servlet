@@ -56,4 +56,9 @@ public interface INoteService {
      * 根据ID删除Note
      */
     int deleteNoteByID(String noteID);
+
+    /**
+     * 修改Note
+     */
+    int updateNote(Note note);
 }

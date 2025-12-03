@@ -32,7 +32,7 @@ public class TagMapper {
      * 获取所有标签名
      */
     public List<String> fetchAllTagName() {
-        String sql = "select tagName from tag";
+        String sql = "select distinct tagName from tag";
         List<String> result = new ArrayList<>();
         try {
             List<Map<String, Object>> resultMap = DBUtil.executeQuery(sql);
@@ -67,5 +67,22 @@ public class TagMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * 根据noteID获取对应的标签
+     */
+    public List<String> fetchTagNameByNoteID(String noteID) {
+        String sql = "select tagName from tag where noteID = ?";
+        List<String> result = new ArrayList<>();
+        try {
+            List<Map<String, Object>> resultMap = DBUtil.executeQuery(sql, noteID);
+            for (Map<String, Object> map : resultMap) {
+                result.add(map.get("tagName").toString());
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

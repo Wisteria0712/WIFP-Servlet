@@ -113,4 +113,12 @@ public class NoteServiceImpl implements INoteService {
         tagMapper.deleteTagByNoteID(noteID);
         return noteMapper.deleteNoteByID(noteID);
     }
+
+    /**
+     * 修改Note
+     */
+    @Override
+    public int updateNote(Note note) {
+        return noteMapper.updateNote(note);
+    }
 }
