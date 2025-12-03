@@ -61,4 +61,9 @@ public interface INoteService {
      * 修改Note
      */
     int updateNote(Note note);
+
+    /**
+     * 修改类别名称
+     */
+    void changeCategoryName(String oldCategoryName, String newCategoryName);
 }

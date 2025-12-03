@@ -121,4 +121,12 @@ public class NoteServiceImpl implements INoteService {
     public int updateNote(Note note) {
         return noteMapper.updateNote(note);
     }
+
+    /**
+     * 修改类别名称
+     */
+    @Override
+    public void changeCategoryName(String oldCategoryName, String newCategoryName) {
+        noteMapper.changeCategoryName(oldCategoryName, newCategoryName);
+    }
 }

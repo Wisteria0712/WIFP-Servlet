@@ -139,4 +139,16 @@ public class NoteMapper {
         }
         return result;
     }
+
+    /**
+     * 修改类别名称
+     */
+    public void changeCategoryName(String oldCategoryName, String newCategoryName) {
+        String sql = "update note set categoryName=? where categoryName=?";
+        try {
+            DBUtil.executeUpdate(sql, newCategoryName, oldCategoryName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
