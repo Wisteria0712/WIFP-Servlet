@@ -58,7 +58,8 @@ public class ReadNoteServlet extends HttpServlet {
             noteService.updateNoteVisitCountByID(noteID);
         }
         session.setAttribute("commentList", commentVOS);
-        resp.sendRedirect("wenote.jsp?url=readNote.jsp");
+//        resp.sendRedirect("wenote.jsp?url=readNote.jsp");
+        req.getRequestDispatcher("/IndexServlet.tran?url=readNote.jsp").forward(req, resp);
     }
 
     @Override
