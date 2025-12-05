@@ -85,4 +85,16 @@ public class TagMapper {
         }
         return result;
     }
+
+    /**
+     * 修改TagName
+     */
+    public void changeTagName(String oldTagName, String newTagName) {
+        String sql = "update tag set tagName=? where tagName=?";
+        try {
+            DBUtil.executeUpdate(sql, newTagName, oldTagName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

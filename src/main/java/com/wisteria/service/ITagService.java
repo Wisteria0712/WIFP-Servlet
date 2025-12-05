@@ -30,4 +30,9 @@ public interface ITagService {
      * 根据NoteID删除对应的标签
      */
     void deleteTagByNoteID(String noteID);
+
+    /**
+     * 修改TagName
+     */
+    void changeTagName(String oldTagName, String newTagName);
 }

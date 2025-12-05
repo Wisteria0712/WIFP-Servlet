@@ -49,4 +49,12 @@ public class TagServiceImpl implements ITagService {
     public void deleteTagByNoteID(String noteID) {
         tagMapper.deleteTagByNoteID(noteID);
     }
+
+    /**
+     * 修改TagName
+     */
+    @Override
+    public void changeTagName(String oldTagName, String newTagName) {
+        tagMapper.changeTagName(oldTagName, newTagName);
+    }
 }

@@ -13,7 +13,7 @@
             <blockquote class="layui-elem-quote layui-quote-nm">
                 <form action="${pageContext.request.contextPath}/author/ChangeTagNameServlet.tran" class="layui-form"
                       name="${tagName}" method="post">
-                    <input type="hidden" name="oldTagName" value="${tagName}" />
+                    <input type="hidden" name="oldTagName" value="${tagName}"/>
                     <div class="layui-form-item layui-inline">
                         <div class="layui-input-inline">
                             <input type="text" class="layui-input" name="tagName" layui-verify="required"
