@@ -83,7 +83,7 @@ public class NoteServiceImpl implements INoteService {
      */
     @Override
     public List<Note> fetchAllNoteByTagName(String tagName) {
-        return List.of();
+        return noteMapper.fetchAllNoteByTagName(tagName);
     }
 
     /**
