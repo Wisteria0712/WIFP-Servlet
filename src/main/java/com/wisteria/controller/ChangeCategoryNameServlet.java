@@ -15,11 +15,6 @@ public class ChangeCategoryNameServlet extends HttpServlet {
     private static final NoteServiceImpl noteService = new NoteServiceImpl();
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    }
-
-    //TODO:目前存在一个问题，虽然重写了doPost方法，但是并不经过
-    @Override
     protected void doPost(@NotNull HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("ChangeCategoryNameServlet.doPost access");
         String oldCategoryName = req.getParameter("oldCategoryName");
@@ -30,10 +25,6 @@ public class ChangeCategoryNameServlet extends HttpServlet {
             System.out.println("old!=new");
             noteService.changeCategoryName(oldCategoryName, categoryName);
         }
-        resp.sendRedirect("www.baidu.com");
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect(req.getContextPath() + "/IndexServlet.tran");
     }
 }
