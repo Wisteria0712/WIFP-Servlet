@@ -66,4 +66,9 @@ public interface INoteService {
      * 修改类别名称
      */
     void changeCategoryName(String oldCategoryName, String newCategoryName);
+
+    /**
+     * 根据CategoryName获取Note
+     */
+    List<Note> fetchAllNoteByCategoryName(String categoryName);
 }

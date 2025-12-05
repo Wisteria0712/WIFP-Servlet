@@ -129,4 +129,12 @@ public class NoteServiceImpl implements INoteService {
     public void changeCategoryName(String oldCategoryName, String newCategoryName) {
         noteMapper.changeCategoryName(oldCategoryName, newCategoryName);
     }
+
+    /**
+     * 根据CategoryName获取Note
+     */
+    @Override
+    public List<Note> fetchAllNoteByCategoryName(String categoryName) {
+        return noteMapper.fetchAllNoteByCategoryName(categoryName);
+    }
 }
