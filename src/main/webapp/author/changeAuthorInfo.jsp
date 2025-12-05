@@ -17,26 +17,29 @@
                 <div class="layui-input-inline">
                     <input type="hidden" name="userName" value="${requestScope.userName}">
                     <input class="layui-input layui-font-gray" type="text" name="newUserName" layui-verify="required"
-                           value="${requestScope.userName}" readonly />
+                           value="${requestScope.userName}" readonly/>
                     <span class="layui-font-gray">用户名不能修改</span>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">昵称</label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" type="text" name="nickName" layui-verify="required" value="${requestScope.nickName}"/>
+                    <input class="layui-input" type="text" name="nickName" layui-verify="required"
+                           value="${requestScope.nickName}"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">手机号</label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" type="text" name="telephone" layui-verify="required" value="${requestScope.telephone}"/>
+                    <input class="layui-input" type="text" name="telephone" layui-verify="required"
+                           value="${requestScope.telephone}"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">简介</label>
                 <div class="layui-input-inline">
-                    <input class="layui-input" type="text" name="brief" layui-verify="required" value="${requestScope.brief}"/>
+                    <input class="layui-input" type="text" name="brief" layui-verify="required"
+                           value="${requestScope.brief}"/>
                 </div>
             </div>
             <div class="layui-form-item">

@@ -26,6 +26,7 @@ public class UserMapper {
                         .photo(resultMap.get(0).get("photo").toString())
                         .isAuthor(resultMap.get(0).get("isAuthor").toString())
                         .createTime(resultMap.get(0).get("createTime").toString())
+                        .brief(resultMap.get(0).get("brief").toString())
                         .build();
             }
         } catch (SQLException e) {
