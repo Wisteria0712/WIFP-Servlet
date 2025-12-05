@@ -71,4 +71,9 @@ public interface INoteService {
      * 根据CategoryName获取Note
      */
     List<Note> fetchAllNoteByCategoryName(String categoryName);
+
+    /**
+     * 根据关键词搜索Note
+     */
+    List<Note> fetchAllNoteByKeyword(String keyword);
 }

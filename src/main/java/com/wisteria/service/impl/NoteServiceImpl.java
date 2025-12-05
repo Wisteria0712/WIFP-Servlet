@@ -137,4 +137,12 @@ public class NoteServiceImpl implements INoteService {
     public List<Note> fetchAllNoteByCategoryName(String categoryName) {
         return noteMapper.fetchAllNoteByCategoryName(categoryName);
     }
+
+    /**
+     * 根据关键词搜索Note
+     */
+    @Override
+    public List<Note> fetchAllNoteByKeyword(String keyword) {
+        return noteMapper.fetchAllNoteByKeyword(keyword);
+    }
 }

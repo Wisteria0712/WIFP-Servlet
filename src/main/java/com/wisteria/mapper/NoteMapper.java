@@ -205,4 +205,31 @@ public class NoteMapper {
         }
         return result;
     }
+
+    /**
+     * 根据关键词获取Note
+     */
+    public List<Note> fetchAllNoteByKeyword(String keyword) {
+        String sql = "select * from note where noteTitle like '%" + keyword + "%' or noteContent like '%" + keyword + "%' or categoryName like '%" + keyword + "%'";
+        List<Note> result = new ArrayList<>();
+        try {
+            List<Map<String, Object>> maps = DBUtil.executeQuery(sql);
+            for (Map<String, Object> map : maps) {
+                Note note = Note.builder()
+                        .noteID(Integer.parseInt(map.get("noteID").toString()))
+                        .author(map.get("author").toString())
+                        .noteTitle(map.get("noteTitle").toString())
+                        .noteContent(map.get("noteContent").toString())
+                        .visit(Integer.parseInt(map.get("visit").toString()))
+                        .categoryName(map.get("categoryName").toString())
+                        .createTime(map.get("createTime").toString())
+                        .updateTime(map.get("updateTime") == null ? null : map.get("updateTime").toString())
+                        .build();
+                result.add(note);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 }
