@@ -27,4 +27,14 @@ public interface IUserService {
      * 用户修改头像
      */
     void changePhoto(User user);
+
+    /**
+     * 修改用户信息
+     */
+    void changeUserInfo(User user);
+
+    /**
+     * 更新Session中的用户信息
+     */
+    User updateUsetInfo4Session(String userName);
 }

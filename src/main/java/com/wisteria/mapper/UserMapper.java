@@ -96,4 +96,42 @@ public class UserMapper {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 修改用户信息
+     */
+    public void changeUserInfo(@NotNull User user) {
+        String sql = "update users set nickname = ?,telephone = ?,brief = ? where userName = ?";
+        try {
+            DBUtil.executeUpdate(sql, user.getNickName(), user.getTelephone(), user.getBrief(), user.getUserName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 更新Session中的用户信息
+     */
+    public User updateUsetInfo4Session(String userName) {
+        String sql = "select * from users where userName = ? ";
+        User user = null;
+        try {
+            List<Map<String, Object>> resultMap = DBUtil.executeQuery(sql, userName);
+            if (!resultMap.isEmpty()) {
+                user = User.builder()
+                        .userName(resultMap.get(0).get("userName").toString())
+                        .nickName(resultMap.get(0).get("nickname").toString())
+                        .password(resultMap.get(0).get("password").toString())
+                        .telephone(resultMap.get(0).get("telephone").toString())
+                        .photo(resultMap.get(0).get("photo").toString())
+                        .isAuthor(resultMap.get(0).get("isAuthor").toString())
+                        .createTime(resultMap.get(0).get("createTime").toString())
+                        .brief(resultMap.get(0).get("brief").toString())
+                        .build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+    }
 }

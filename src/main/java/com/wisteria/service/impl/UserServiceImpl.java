@@ -57,4 +57,24 @@ public class UserServiceImpl implements IUserService {
     public void changePhoto(User user) {
         userMapper.changePhoto(user);
     }
+
+    /**
+     * 修改用户信息
+     *
+     * @param user
+     */
+    @Override
+    public void changeUserInfo(User user) {
+        userMapper.changeUserInfo(user);
+    }
+
+    /**
+     * 更新Session中的用户信息
+     *
+     * @param userName
+     */
+    @Override
+    public User updateUsetInfo4Session(String userName) {
+        return userMapper.updateUsetInfo4Session(userName);
+    }
 }

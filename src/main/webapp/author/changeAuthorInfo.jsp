@@ -26,6 +26,7 @@
                 <div class="layui-input-inline">
                     <input class="layui-input" type="text" name="nickName" layui-verify="required"
                            value="${requestScope.nickName}"/>
+                    <span class="layui-font-gray">昵称不能超过10个字符</span>
                 </div>
             </div>
             <div class="layui-form-item">
