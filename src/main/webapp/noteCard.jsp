@@ -1,9 +1,3 @@
-<%--
-  Author: Amnotgcs
-  Date: 2021/11/26
-  Time: 15:48
-  Description:
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%--登录或个人简介面板--%>
@@ -51,16 +45,5 @@
                 <span class="layui-badge">${tag.value}</span>
             </a>
         </c:forEach>
-    </div>
-</div>
-<%--其他功能的面板--%>
-<div class="layui-card">
-    <div class="layui-card-header">
-        <i class="layui-icon layui-icon-link"></i>
-        资源分享
-    </div>
-    <div class="layui-card-body layui-btn-container">
-        <a class="layui-btn layui-bg-gray" href="">工业园大事件</a>
-        <a class="layui-btn layui-bg-gray" href="">技术乐园</a>
     </div>
 </div>

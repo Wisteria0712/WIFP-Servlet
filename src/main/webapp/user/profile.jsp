@@ -1,9 +1,3 @@
-<%--
-  Date: 2021/11/26
-  Time: 16:56
-  Author: Amnotgcs
-  Description: 
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <div class="layui-card-header">

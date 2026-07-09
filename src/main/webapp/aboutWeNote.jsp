@@ -1,65 +1,23 @@
-<%--
-  Author: Amnotgcs
-  Date: 2021/11/26
-  Time: 16:13
-  Description:
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<legend>开发本系统的时间线</legend>
-<div class="layui-field-box">
-    <ul class="layui-timeline">
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-icon-date layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title">2020年5月8日</h3>
-                <div>
-                    <blockquote class="layui-elem-quote">发布之弦，一触即发！</blockquote>
-                </div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-icon-date layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title">2020年2月8日</h3>
-                <div>
-                    <blockquote class="layui-elem-quote">一切准备已就绪！</blockquote>
-                </div>
-                <ul>
-                    <li>因小而大</li>
-                    <li>因弱而强</li>
-                </ul>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-icon-date layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title">2019年12月8日</h3>
-                <div>
-                    <fieldset class="layui-elem-field">
-                        <legend>我是有底线的</legend>
-                        <div class="layui-field-box">不枉百余日夜与之为伴！</div>
-                    </fieldset>
-                </div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-icon-date layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title">2019年7月8日</h3>
-                <div>
-                    <fieldset class="layui-elem-field">
-                        <legend>我是没有底线的</legend>
-                        <div class="layui-field-box">无论能走多远，至少曾倾注全心！</div>
-                    </fieldset>
-                </div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-icon-date layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title">过去</h3>
-            </div>
-        </li>
-    </ul>
+<div class="layui-card">
+    <div class="layui-card-header">
+        <h2>关于巡检反馈平台</h2>
+    </div>
+    <div class="layui-card-body">
+        <h3>系统作用</h3>
+        <p>
+            巡检反馈平台是一款专注于企业设备巡检、维护和问题反馈的管理系统，旨在提高巡检效率，规范巡检流程，确保设备安全稳定运行。</p>
+
+        <h3>开发目的</h3>
+        <p>
+            为了解决传统巡检方式中存在的记录不规范、信息不及时、统计困难等问题，我们开发了这款巡检反馈平台。通过数字化手段，实现巡检任务的在线分配、执行、记录和跟踪，提高工作效率，降低管理成本。</p>
+
+        <h3>平台优势</h3>
+        <p>
+            本平台采用简洁直观的界面设计，操作便捷，功能完善，支持多用户协作，实时数据统计和分析，为企业设备管理提供有力支持。</p>
+
+        <h3>联系我们</h3>
+        <p>如果您在使用过程中遇到任何问题或有宝贵建议，欢迎随时联系我们，我们将竭诚为您服务。</p>
+    </div>
 </div>

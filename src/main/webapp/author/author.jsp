@@ -1,9 +1,3 @@
-<%--
-  Date: 2021/11/26
-  Time: 16:57
-  Author: Amnotgcs
-  Description: 
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="layui-card">
     <div class="layui-card-header">

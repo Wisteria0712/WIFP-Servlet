@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wisteria</groupId>
-    <artifactId>myJavaWeb</artifactId>
+    <artifactId>WIFP-Servlet</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>myJavaWeb</name>
+    <name>WIFP-Servlet</name>
     <packaging>war</packaging>
 
     <properties>
@@ -69,6 +69,7 @@
     </dependencies>
 
     <build>
+        <finalName>WIFP-Servlet</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

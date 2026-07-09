@@ -1,17 +1,12 @@
-<%--
-  Author: Amnotgcs
-  Date: 2021/11/26
-  Time: 10:52
-  Description: project index.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>安巡互动反馈系统</title>
+        <title>巡检反馈平台</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css">
+        <link rel="icon" href="./img/favicon.ico">
         <script src="${pageContext.request.contextPath}/resources/layui/layui.js"></script>
         <style>
             body {

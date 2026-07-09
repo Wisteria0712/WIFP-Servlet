@@ -1,23 +1,16 @@
-<%--
-  Author: Amnotgcs
-  Date: 2021/11/26
-  Time: 15:45
-  Description:
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!--左列logo-->
 <div class="layui-col-md4" style="text-align: center">
     <div class="layui-row">
-        <div class="layui-col-md2 layui-col-md-offset1 layui-anim layui-anim-rotate">
+        <div class="layui-col-md2 layui-col-md-offset1 ">
             <div class="layui-row" id="logo">
-                <img src="01.png" width="90" height="90">
-
+                <img src="./img/logo.png" width="50" height="50" style="margin-top: 20px">
             </div>
         </div>
         <div class="layui-col-md9">
             <div class="layui-row layui-elip" style="font-size: 28px;margin-top:20px">
-                安巡互动反馈台
+                巡检反馈平台
             </div>
         </div>
     </div>
@@ -82,30 +75,13 @@
         var util = layui.util;
         var $ = layui.jquery;
 
-        // 更新当前时间的函数
         function updateCurrentTime() {
             var now = new Date();
             var timeStr = util.toDateString(now, 'yyyy-MM-dd HH:mm:ss');
             $("#today").html('当前时间: ' + timeStr);
         }
 
-        // 初始调用一次
         updateCurrentTime();
-
-        // 每秒更新一次时间
         setInterval(updateCurrentTime, 1000);
-
-        // 保持logo动画效果不变
-        setTimeout(function () {
-            $('#logo').removeClass('layui-anim-rotate');
-        }, 1000);
-
-        $('#logo').on('click', function () {
-            var othis = $(this);
-            othis.addClass('layui-anim-rotate');
-            setTimeout(function () {
-                othis.removeClass('layui-anim-rotate')
-            }, 1000);
-        });
     });
 </script>
