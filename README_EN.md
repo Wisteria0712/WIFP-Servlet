@@ -1,4 +1,5 @@
-# <p align="center"><img src="asserts/logo.png" alt="WIFP Logo" width="120" /></p>
+<div align="center"><img src="asserts/logo.png" alt="WIFP Logo" width="160" /></div>
+
 <h1 align="center">WIFP-Servlet</h1>
 <p align="center">WIFP (Wisteria Inspection Feedback Platform) — a lightweight inspection reporting & feedback web app built with Java Web (Servlet/JSP)</p>
 <p align="center"><strong>English</strong> | <a href="./README.md">中文</a></p>
@@ -13,7 +14,9 @@ WIFP-Servlet (Wisteria Inspection Feedback Platform - Servlet) is a lightweight 
 - Feedback & discussion (comments)
 - Categorization and tagging
 
-Note: This is a student project I built while taking a Java Web course at school. The early implementation is straightforward and may contain quite a few bugs. After graduation, I did some cleanup and decided to publish it for learning and sharing. Please be kind.
+Note: This is a student project I built while taking a Java Web course at school. The early implementation is
+straightforward and may contain quite a few bugs. After graduation, I did some cleanup and decided to publish it for
+learning and sharing. Please be kind.
 
 ## Features (by module)
 
@@ -176,5 +179,6 @@ All users in the sample database use password `123456`.
 
 ## Disclaimer
 
-- This project is for learning and sharing. It focuses on being runnable and understandable rather than being production-grade.
+- This project is for learning and sharing. It focuses on being runnable and understandable rather than being
+  production-grade.
 - Issues and PRs are welcome.

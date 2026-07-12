@@ -1,15 +1,19 @@
-# <p align="center"><img src="asserts/logo.png" alt="WIFP Logo" width="120" /></p>
+<div align="center"><img src="asserts/logo.png" alt="WIFP Logo" width="160" /></div>
 
-# <p align="center">WIFP-Servlet</p>
+<h1 align="center">WIFP-Servlet</h1>
 
 <p align="center">一个基于 Java Web（Servlet/JSP）的巡检互动反馈平台</p>
-<p align="center"><a href="./README_EN.md">English</a> | <strong>中文</strong></p>
+
+<p align="center">
+<a href="./README_EN.md">English</a> | <strong>中文</strong>
+</p>
 
 ---
 
 ## 项目介绍
 
-WIFP-Servlet（Wisteria Inspection Feedback Platform-Servlet）是一个用于“巡检记录上报 + 反馈沟通 + 分类/标签管理”的轻量级 JavaWeb 项目。
+WIFP-Servlet（Wisteria Inspection Feedback Platform-Servlet）是一个用于“巡检记录上报 + 反馈沟通 + 分类/标签管理”的轻量级
+JavaWeb 项目。
 
 说明：这是我在学校学习 JavaWeb 课程时完成的学生项目，早期实现比较直白，BUG 也可能不少。毕业后做了一轮整理，心血来潮把它发布出来，供学习交流使用，不喜勿喷。
 
